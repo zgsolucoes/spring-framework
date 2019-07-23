@@ -212,6 +212,16 @@ public class TransactionAwareDataSourceProxy extends DelegatingDataSource {
 			else if (method.getName().equals("isClosed")) {
 				return this.closed;
 			}
+			else if (method.getName().equals("clearWarnings")) {
+				if (this.target == null) {
+					return null;
+				}
+			}
+			else if (method.getName().equals("getWarnings")) {
+				if (this.target == null) {
+					return null;
+				}
+			}
 
 			if (this.target == null) {
 				if (this.closed) {
